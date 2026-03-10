@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"C:\\\\Users\\\\UPDATE\\\\Desktop\\\\Projects\\\\Sijjadati\" && vercel login 2>&1)",
+      "Bash(cd \"C:\\\\Users\\\\UPDATE\\\\Desktop\\\\Projects\\\\Sijjadati\" && vercel --prod 2>&1)",
+      "Bash(cd \"C:\\\\Users\\\\UPDATE\\\\Desktop\\\\Projects\\\\Sijjadati\" && vercel --prod --yes 2>&1)",
+      "Bash(cd \"C:\\\\Users\\\\UPDATE\\\\Desktop\\\\Projects\\\\Sijjadati\" && vercel --prod --yes --name sijjadati 2>&1)",
+      "Bash(cd \"C:\\\\Users\\\\UPDATE\\\\Desktop\\\\Projects\\\\Sijjadati\" && npx tsc --noEmit 2>&1)",
+      "Bash(cd \"C:\\\\Users\\\\UPDATE\\\\Desktop\\\\Projects\\\\Sijjadati\" && npm run build 2>&1 | tail -50)",
+      "Bash(cd \"C:\\\\Users\\\\UPDATE\\\\Desktop\\\\Projects\\\\Sijjadati\" && npm run build 2>&1)"
+    ]
+  }
+}

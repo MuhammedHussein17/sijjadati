@@ -1,3 +1,5 @@
+"use client";
+
 import { useLocale, useTranslations } from "next-intl";
 
 const FALLBACK_PHONE = "972501234567";
