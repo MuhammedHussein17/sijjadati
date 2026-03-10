@@ -15,7 +15,8 @@
       "Bash(sleep 15 && curl -s http://localhost:3001/he 2>&1 | head -30)",
       "Bash(sleep 10 && curl -s http://localhost:3002/he 2>&1 | grep -o '\"message\":\"[^\"]*\"' | head -5)",
       "Bash(sleep 8 && curl -s http://localhost:3003/he 2>&1 | grep -c \"sijjadati\\\\|שטיח\\\\|סגדתי\")",
-      "Bash(curl -s http://localhost:3003/he 2>&1 | grep -o '__next_error__\\\\|digest' | head -3)"
+      "Bash(curl -s http://localhost:3003/he 2>&1 | grep -o '__next_error__\\\\|digest' | head -3)",
+      "Bash(cd \"C:\\\\Users\\\\UPDATE\\\\Desktop\\\\Projects\\\\Sijjadati\" && npm run build 2>&1 | tail -5)"
     ]
   }
 }
