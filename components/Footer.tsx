@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { PHONE_DISPLAY, PHONE_E164, GOOGLE_MAPS_URL } from "@/lib/site";
+import { PHONE_DISPLAY, PHONE_E164, ADDRESS_DISPLAY, WAZE_URL } from "@/lib/site";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -49,12 +49,12 @@ export default function Footer() {
           </p>
           <p className="mt-1 text-xs text-[#F5F0E8]/80">
             <a
-              href={GOOGLE_MAPS_URL}
+              href={WAZE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-[#B8960C] hover:underline"
             >
-              {t("address")} — 32°50&apos;36.2&quot;N 35°20&apos;19.6&quot;E
+              {t("address")} — {ADDRESS_DISPLAY}
             </a>
           </p>
           <p className="mt-1 text-xs text-[#F5F0E8]/80">

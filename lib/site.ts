@@ -9,7 +9,11 @@ export const WHATSAPP_NUMBER = "972546671211";
 /** Coordinates: 32°50'36.2"N 35°20'19.6"E (decimal) */
 export const MAP_LAT = 32.843389;
 export const MAP_LNG = 35.338778;
-export const ADDRESS_COORDINATES = "32°50'36.2\"N 35°20'19.6\"E";
+/** Display address: عرابة شارع الخانوق (Ar'ara, Khanouq St) */
+export const ADDRESS_DISPLAY = "عرابة شارع الخانوق";
+
+/** Waze — open in app or browser for navigation */
+export const WAZE_URL = `https://waze.com/ul?ll=${MAP_LAT},${MAP_LNG}&navigate=yes`;
 
 /** Google Maps “Get directions” URL */
 export const GOOGLE_MAPS_URL = `https://www.google.com/maps?q=${MAP_LAT},${MAP_LNG}`;
