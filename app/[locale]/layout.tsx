@@ -34,16 +34,18 @@ async function getMessages(locale: Locale) {
 }
 
 type Props = {
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
   children: ReactNode;
 };
 
 export default async function LocaleLayout({ children, params }: Props) {
-  const { locale } = await params;
+  const { locale: localeParam } = await params;
 
-  if (!locales.includes(locale)) {
+  if (!locales.includes(localeParam as Locale)) {
     notFound();
   }
+
+  const locale = localeParam as Locale;
 
   const messages = await getMessages(locale);
 
