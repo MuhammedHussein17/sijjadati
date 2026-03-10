@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
+import { PHONE_DISPLAY, PHONE_E164, GOOGLE_MAPS_URL } from "@/lib/site";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -42,11 +43,18 @@ export default function Footer() {
           </h4>
           <p className="text-xs text-[#F5F0E8]/80">
             טלפון / هاتف:{" "}
+            <a href={`tel:${PHONE_E164}`} className="font-medium text-[#B8960C]">
+              {PHONE_DISPLAY}
+            </a>
+          </p>
+          <p className="mt-1 text-xs text-[#F5F0E8]/80">
             <a
-              href="tel:+972501234567"
-              className="font-medium text-[#B8960C]"
+              href={GOOGLE_MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-[#B8960C] hover:underline"
             >
-              +972-50-123-4567
+              {t("address")} — 32°50&apos;36.2&quot;N 35°20&apos;19.6&quot;E
             </a>
           </p>
           <p className="mt-1 text-xs text-[#F5F0E8]/80">

@@ -2,13 +2,13 @@
 
 import { useLocale, useTranslations } from "next-intl";
 
-const FALLBACK_PHONE = "972501234567";
+import { WHATSAPP_NUMBER } from "@/lib/site";
 
 export default function WhatsAppButton() {
   const locale = useLocale();
   const t = useTranslations("whatsapp");
 
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || FALLBACK_PHONE;
+  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || WHATSAPP_NUMBER;
   const text = encodeURIComponent(t("prefill"));
   const href = `https://wa.me/${phone}?text=${text}`;
 
