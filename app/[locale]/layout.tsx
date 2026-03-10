@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { Cairo, Heebo } from "next/font/google";
 import { ReactNode } from "react";
-import { defaultLocale, Locale, locales } from "../../i18n";
+import { Locale, locales } from "../../i18n";
 import "../globals.css";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -21,17 +21,8 @@ const cairo = Cairo({
 
 export const metadata: Metadata = {
   title: "סגדתי - שטיחים באיכות פרמיום | ישראל",
-  description: "שטיחים יוקרתיים לבית ולעסק. סגדתי - סגדתי | סجادتي.",
+  description: "שטיחים יוקרתיים לבית ולעסק. סגדתי - סגדתי | سجادتي.",
 };
-
-async function getMessages(locale: Locale) {
-  try {
-    const messages = (await import(`../../locales/${locale}.json`)).default;
-    return messages;
-  } catch {
-    notFound();
-  }
-}
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -46,17 +37,12 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   const locale = localeParam as Locale;
-
-  const messages = await getMessages(locale);
-
-  const lang = locale === "he" ? "he" : "ar";
-  const dir = "rtl";
   const fontClass = locale === "he" ? heebo.variable : cairo.variable;
 
   return (
-    <html lang={lang} dir={dir} className={fontClass}>
+    <html lang={locale} dir="rtl" className={fontClass}>
       <body className="min-h-screen bg-[#F5F0E8] text-[#333333]">
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider>
           <div className="flex min-h-screen flex-col bg-[#F5F0E8]">
             <Navbar />
             <main className="flex-1">{children}</main>
@@ -68,4 +54,3 @@ export default async function LocaleLayout({ children, params }: Props) {
     </html>
   );
 }
-
