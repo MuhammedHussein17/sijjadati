@@ -43,9 +43,6 @@ export default function Footer() {
             >
               קטלוג / الكتالوج
             </Link>
-            <Link href={`/${locale}/about`} className="hover:text-[#C8A415]">
-              אודות / من نحن
-            </Link>
             <Link href={`/${locale}/contact`} className="hover:text-[#C8A415]">
               {t("contact")}
             </Link>
