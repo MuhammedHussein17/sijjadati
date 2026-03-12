@@ -71,10 +71,10 @@ export default function Footer() {
           <p className="mt-1 text-xs text-[#F5EDD8]/80">
             אימייל / بريد:{" "}
             <a
-              href="mailto:info@sijjadati.co.il"
+              href="mailto:Sajjadti2026@gmail.com"
               className="font-medium text-[#C8A415]"
             >
-              info@sijjadati.co.il
+              Sajjadti2026@gmail.com
             </a>
           </p>
           <p className="mt-2 text-xs text-[#F5EDD8]/60">
