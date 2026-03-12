@@ -164,7 +164,10 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <CatalogDropdownMobile />
+          <div className="flex items-center gap-2 md:hidden">
+            <CatalogDropdownMobile />
+            <ContactDropdown />
+          </div>
           <div className="flex items-center gap-1 text-xs font-semibold">
             <Link
               href={switchLocaleUrl("he")}
