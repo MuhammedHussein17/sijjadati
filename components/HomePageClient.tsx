@@ -9,6 +9,11 @@ function HeroSection() {
   const t = useTranslations("hero");
   const locale = useLocale();
 
+  const logoAlt =
+    locale === "he"
+      ? "סיג'אדתי - שטיחים"
+      : "سجادتي - سجاد";
+
   return (
     <section className="relative overflow-hidden bg-[#0A1F44] py-24 text-center text-white">
       <div
@@ -19,6 +24,18 @@ function HeroSection() {
         }}
       />
       <div className="relative mx-auto max-w-3xl px-4">
+        <div className="mb-8 flex justify-center">
+          <div className="logo-glow">
+            <Image
+              src="/images/logo.png"
+              alt={logoAlt}
+              priority
+              width={280}
+              height={90}
+              className="w-52 md:w-72 h-auto"
+            />
+          </div>
+        </div>
         <h1 className="text-4xl font-bold leading-tight text-[#B8960C] md:text-5xl">
           {t("title")}
         </h1>

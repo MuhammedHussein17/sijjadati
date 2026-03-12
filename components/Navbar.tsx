@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
@@ -16,14 +17,25 @@ export default function Navbar() {
   const switchLocaleUrl = (targetLocale: string) =>
     `/${targetLocale}${basePath ? `/${basePath}` : ""}`;
 
+  const logoAlt =
+    locale === "he"
+      ? "סיג'אדתי - שטיחים"
+      : "سجادتي - سجاد";
+
   return (
     <header className="sticky top-0 z-40 border-b border-[#B8960C]/20 bg-[#0A1F44]/95 text-white backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
-        <Link href={`/${locale}`} className="flex items-baseline gap-2">
-          <span className="text-2xl font-semibold text-[#B8960C]">
-            Sijjadati
-          </span>
-          <span className="text-sm text-[#F5F0E8]">סגדתי • سجادتي</span>
+        <Link href={`/${locale}`} className="flex items-center gap-2">
+          <div className="relative h-11 w-auto md:h-14">
+            <Image
+              src="/images/logo.png"
+              alt={logoAlt}
+              priority
+              height={56}
+              width={200}
+              className="h-11 w-auto md:h-14"
+            />
+          </div>
         </Link>
         <nav className="flex items-center gap-6">
           <ul className="hidden items-center gap-6 text-sm font-medium md:flex">
