@@ -5,7 +5,10 @@ export type CategoryValue =
   | "oil_burners"
   | "rolls"
   | "cushions"
-  | "bed_rolls";
+  | "bed_rolls"
+  | "towels"
+  | "bath_towels"
+  | "blankets";
 
 export const CATEGORIES: { value: CategoryValue; labelAr: string }[] = [
   { value: "carpets", labelAr: "قسم السجاد" },
@@ -15,5 +18,8 @@ export const CATEGORIES: { value: CategoryValue; labelAr: string }[] = [
   { value: "rolls", labelAr: "ملفات" },
   { value: "cushions", labelAr: "مخدات" },
   { value: "bed_rolls", labelAr: "ملفات لفرشة التخت" },
+  { value: "towels", labelAr: "قسم المناشف" },
+  { value: "bath_towels", labelAr: "قسم البشاكير" },
+  { value: "blankets", labelAr: "قسم الحرامات" },
 ];
 

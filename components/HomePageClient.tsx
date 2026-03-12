@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import type { Carpet } from "@/lib/sanity.types";
-import { CATEGORIES } from "@/lib/categories";
 
 function HeroSection() {
   const t = useTranslations("hero");
@@ -16,7 +15,7 @@ function HeroSection() {
       : "سجادتي - سجاد";
 
   return (
-    <section className="relative overflow-hidden bg-[#1C1610] py-24 text-center text-sij-text-light">
+    <section className="relative overflow-hidden bg-[#0A1F44] py-24 text-center text-white">
       <div
         className="absolute inset-0 opacity-10"
         style={{
@@ -37,37 +36,23 @@ function HeroSection() {
             />
           </div>
         </div>
-        <h1 className="text-4xl font-bold leading-tight text-sij-gold md:text-5xl">
+        <h1 className="text-4xl font-bold leading-tight text-[#B8960C] md:text-5xl">
           {t("title")}
         </h1>
-        <p className="mt-4 text-lg text-sij-text-light/90 md:text-xl">
-          {t("subtitle")}
-        </p>
+        <p className="mt-4 text-lg text-[#F5F0E8]/90 md:text-xl">{t("subtitle")}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <div className="relative">
-            <div className="group inline-flex flex-col items-stretch">
-              <Link
-                href={`/${locale}/catalog`}
-                className="rounded-full bg-sij-gold px-8 py-3 text-sm font-semibold text-sij-text-dark transition hover:bg-[#e0b852]"
-              >
-                {t("viewCatalog")}
-              </Link>
-              <div className="invisible absolute end-0 top-full z-30 mt-2 w-64 max-w-xs rounded-xl bg-[#1C1610] text-sij-text-light shadow-lg opacity-0 ring-1 ring-sij-gold/40 transition group-hover:visible group-hover:opacity-100 md:group-hover:translate-y-0">
-                <ul className="py-2 text-sm">
-                  {CATEGORIES.map((cat) => (
-                    <li key={cat.value}>
-                      <Link
-                        href={`/${locale}/catalog?category=${cat.value}`}
-                        className="block px-4 py-2 hover:bg-[#2C2015] hover:text-sij-gold"
-                      >
-                        {cat.labelAr}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+          <Link
+            href={`/${locale}/catalog`}
+            className="rounded-full bg-[#B8960C] px-8 py-3 font-semibold text-[#0A1F44] transition hover:bg-[#a07a0a]"
+          >
+            {t("viewCatalog")}
+          </Link>
+          <Link
+            href={`/${locale}/contact`}
+            className="rounded-full border border-[#B8960C] px-8 py-3 font-semibold text-[#B8960C] transition hover:bg-[#B8960C]/10"
+          >
+            {t("requestQuote")}
+          </Link>
         </div>
       </div>
     </section>
@@ -79,15 +64,15 @@ function CategoriesSection() {
   const locale = useLocale();
 
   const cats = [
-    { key: "candles", icon: "🕯️", filter: "candles", label: "شموع" },
-    { key: "modern", icon: "🏠", filter: "carpets", label: t("modern") },
-    { key: "incense_burners", icon: "🪔", filter: "incense_burners", label: "مباخر" },
+    { key: "handmade", icon: "🧵", filter: "handmade" },
+    { key: "modern", icon: "🏠", filter: "modern" },
+    { key: "outdoor", icon: "🌿", filter: "outdoor" },
   ] as const;
 
   return (
-    <section className="py-16 bg-[#2C2015] text-sij-text-light">
+    <section className="py-16">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <h2 className="mb-10 text-center text-2xl font-bold text-sij-gold">
+        <h2 className="mb-10 text-center text-2xl font-bold text-[#0A1F44]">
           {t("title")}
         </h2>
         <div className="grid gap-6 sm:grid-cols-3">
@@ -95,11 +80,11 @@ function CategoriesSection() {
             <Link
               key={cat.key}
               href={`/${locale}/catalog?category=${cat.filter}`}
-              className="group flex flex-col items-center rounded-2xl border border-sij-gold/25 bg-[#2C2015] p-8 text-center shadow-sm transition hover:border-sij-gold hover:shadow-md"
+              className="group flex flex-col items-center rounded-2xl border border-[#B8960C]/20 bg-white p-8 text-center shadow-sm transition hover:border-[#B8960C] hover:shadow-md"
             >
               <span className="text-4xl">{cat.icon}</span>
-              <span className="mt-3 font-semibold text-sij-text-light group-hover:text-sij-gold">
-                {cat.label}
+              <span className="mt-3 font-semibold text-[#0A1F44] group-hover:text-[#B8960C]">
+                {t(cat.key)}
               </span>
             </Link>
           ))}
@@ -121,19 +106,19 @@ function TrustSection() {
   const icons = ["🎨", "⭐", "💬", "🚚"];
 
   return (
-    <section className="bg-[#0F0C08] py-16 text-sij-text-light">
+    <section className="bg-[#0A1F44] py-16 text-white">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <h2 className="mb-10 text-center text-2xl font-bold text-sij-gold">
+        <h2 className="mb-10 text-center text-2xl font-bold text-[#B8960C]">
           {t("title")}
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {points.map((key, i) => (
             <div
               key={key}
-              className="flex flex-col items-center rounded-xl bg-[#2C2015] p-6 text-center"
+              className="flex flex-col items-center rounded-xl bg-white/5 p-6 text-center"
             >
               <span className="text-3xl">{icons[i]}</span>
-              <p className="mt-3 text-sm text-sij-text-light/90">{t(key)}</p>
+              <p className="mt-3 text-sm text-[#F5F0E8]/90">{t(key)}</p>
             </div>
           ))}
         </div>
@@ -148,13 +133,13 @@ function FeaturedSection({ featuredCarpets }: { featuredCarpets: Carpet[] }) {
   const featured = featuredCarpets.slice(0, 4);
 
   return (
-    <section className="py-16 bg-[#1C1610] text-sij-text-light">
+    <section className="py-16">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="mb-10 flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-sij-gold">{t("title")}</h2>
+          <h2 className="text-2xl font-bold text-[#0A1F44]">{t("title")}</h2>
           <Link
             href={`/${locale}/catalog`}
-            className="text-sm font-semibold text-sij-gold hover:underline"
+            className="text-sm font-semibold text-[#B8960C] hover:underline"
           >
             {t("viewAll")} ←
           </Link>
@@ -168,9 +153,9 @@ function FeaturedSection({ featuredCarpets }: { featuredCarpets: Carpet[] }) {
             return (
               <div
                 key={product.id}
-                className="overflow-hidden rounded-2xl border border-sij-gold/25 bg-[#2C2015] shadow-sm transition hover:shadow-md"
+                className="overflow-hidden rounded-2xl border border-[#B8960C]/20 bg-white shadow-sm transition hover:shadow-md"
               >
-                <div className="relative h-40 w-full bg-[#2C2015]">
+                <div className="relative h-40 w-full bg-[#F5F0E8]">
                   {imgUrl ? (
                     <Image
                       src={imgUrl}
@@ -186,13 +171,13 @@ function FeaturedSection({ featuredCarpets }: { featuredCarpets: Carpet[] }) {
                   )}
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-sij-text-light">{name}</h3>
-                  <p className="mt-1 line-clamp-2 text-xs text-sij-text-light/80">
+                  <h3 className="font-semibold text-[#0A1F44]">{name}</h3>
+                  <p className="mt-1 line-clamp-2 text-xs text-[#333]/70">
                     {desc}
                   </p>
                   <Link
                     href={`/${locale}/catalog`}
-                    className="mt-3 inline-block text-xs font-semibold text-sij-gold hover:underline"
+                    className="mt-3 inline-block text-xs font-semibold text-[#B8960C] hover:underline"
                   >
                     {t("viewDetails")} →
                   </Link>

@@ -8,6 +8,9 @@ const CATEGORY_OPTIONS = [
   { title: "ملفات (Rolls)", value: "rolls" },
   { title: "مخدات (Cushions)", value: "cushions" },
   { title: "ملفات لفرشة التخت (Bed Roll Covers)", value: "bed_rolls" },
+  { title: "قسم المناشف (Towels)", value: "towels" },
+  { title: "قسم البشاكير (Bath Towels)", value: "bath_towels" },
+  { title: "قسم الحرامات (Blankets)", value: "blankets" },
 ];
 
 const PRICE_RANGE_OPTIONS = [
