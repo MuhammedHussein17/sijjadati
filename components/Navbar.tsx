@@ -23,7 +23,7 @@ export default function Navbar() {
       : "سجادتي - سجاد";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[#B8960C]/20 bg-[#0A1F44]/95 text-white backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-sij-gold/30 bg-[#0F0C08]/95 text-sij-text-light backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
         <Link href={`/${locale}`} className="flex items-center gap-2">
           <div className="relative h-11 w-auto md:h-14">
@@ -47,7 +47,7 @@ export default function Navbar() {
                       ? `/${locale}`
                       : `/${locale}/${key === "catalog" ? "catalog" : key}`
                   }
-                  className="transition-colors hover:text-[#B8960C]"
+                  className="transition-colors hover:text-sij-gold"
                 >
                   {t(key)}
                 </Link>
@@ -63,7 +63,7 @@ export default function Navbar() {
             >
               HE
             </Link>
-            <span className="text-[#B8960C]">|</span>
+            <span className="text-sij-gold">|</span>
             <Link
               href={switchLocaleUrl("ar")}
               className={`rounded-full px-2 py-1 ${

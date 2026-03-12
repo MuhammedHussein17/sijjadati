@@ -15,7 +15,7 @@ export default function Footer() {
       : "سجادتي - سجاد";
 
   return (
-    <footer className="mt-12 border-t border-[#B8960C]/20 bg-[#0A1F44] text-[#F5F0E8]">
+    <footer className="mt-12 border-t border-sij-gold/30 bg-[#1C1610] text-sij-text-light">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 text-sm md:grid-cols-3 md:px-6">
         <div className="flex flex-col items-center md:items-start">
           <div className="mb-3 flex justify-center">
