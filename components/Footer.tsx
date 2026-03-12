@@ -27,60 +27,60 @@ export default function Footer() {
               className="w-[140px] opacity-85"
             />
           </div>
-          <p className="mt-1 text-xs text-[#F5F0E8]/80">{t("tagline")}</p>
+          <p className="mt-1 text-xs text-[#F5EDD8]/80">{t("tagline")}</p>
         </div>
         <div>
-          <h4 className="mb-3 text-sm font-semibold text-[#F5F0E8]">
+          <h4 className="mb-3 text-sm font-semibold text-[#F5EDD8]">
             {t("quickLinks")}
           </h4>
           <nav className="flex flex-col gap-2">
-            <Link href={`/${locale}`} className="hover:text-[#B8960C]">
+            <Link href={`/${locale}`} className="hover:text-[#C8A415]">
               בית / الرئيسية
             </Link>
             <Link
               href={`/${locale}/catalog`}
-              className="hover:text-[#B8960C]"
+              className="hover:text-[#C8A415]"
             >
               קטלוג / الكتالوج
             </Link>
-            <Link href={`/${locale}/about`} className="hover:text-[#B8960C]">
+            <Link href={`/${locale}/about`} className="hover:text-[#C8A415]">
               אודות / من نحن
             </Link>
-            <Link href={`/${locale}/contact`} className="hover:text-[#B8960C]">
+            <Link href={`/${locale}/contact`} className="hover:text-[#C8A415]">
               {t("contact")}
             </Link>
           </nav>
         </div>
         <div>
-          <h4 className="mb-3 text-sm font-semibold text-[#F5F0E8]">
+          <h4 className="mb-3 text-sm font-semibold text-[#F5EDD8]">
             {t("contact")}
           </h4>
-          <p className="text-xs text-[#F5F0E8]/80">
+          <p className="text-xs text-[#F5EDD8]/80">
             טלפון / هاتف:{" "}
-            <a href={`tel:${PHONE_E164}`} className="font-medium text-[#B8960C]">
+            <a href={`tel:${PHONE_E164}`} className="font-medium text-[#C8A415]">
               {PHONE_DISPLAY}
             </a>
           </p>
-          <p className="mt-1 text-xs text-[#F5F0E8]/80">
+          <p className="mt-1 text-xs text-[#F5EDD8]/80">
             <a
               href={WAZE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-[#B8960C] hover:underline"
+              className="font-medium text-[#C8A415] hover:underline"
             >
               {t("address")} — {ADDRESS_DISPLAY}
             </a>
           </p>
-          <p className="mt-1 text-xs text-[#F5F0E8]/80">
+          <p className="mt-1 text-xs text-[#F5EDD8]/80">
             אימייל / بريد:{" "}
             <a
               href="mailto:info@sijjadati.co.il"
-              className="font-medium text-[#B8960C]"
+              className="font-medium text-[#C8A415]"
             >
               info@sijjadati.co.il
             </a>
           </p>
-          <p className="mt-2 text-xs text-[#F5F0E8]/60">
+          <p className="mt-2 text-xs text-[#F5EDD8]/60">
             © {new Date().getFullYear()} Sijjadati. {t("rights")}
           </p>
         </div>

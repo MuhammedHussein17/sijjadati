@@ -41,9 +41,9 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} dir="rtl" className={fontClass}>
-      <body className="min-h-screen bg-[#F5F0E8] text-[#333333]">
+      <body className="min-h-screen bg-[#1C1610] text-[#F5EDD8]">
         <NextIntlClientProvider>
-          <div className="flex min-h-screen flex-col bg-[#F5F0E8]">
+          <div className="flex min-h-screen flex-col bg-[#1C1610]">
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
