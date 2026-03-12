@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { CATEGORIES } from "@/lib/categories";
 
-const NAV_ITEMS = ["home", "catalog", "about", "contact"] as const;
+const NAV_ITEMS = ["home", "catalog", "contact"] as const;
 
 function CatalogDropdownDesktop() {
   const locale = useLocale();
@@ -35,6 +35,50 @@ function CatalogDropdownDesktop() {
           </ul>
         </div>
       </div>
+    </div>
+  );
+}
+
+function ContactDropdown() {
+  const tNav = useTranslations("nav");
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="inline-flex items-center gap-1 rounded-full bg-transparent px-3 py-1 text-sm font-medium text-sij-text-light transition hover:text-sij-gold"
+      >
+        {tNav("contact")}
+        <span className="text-xs">{open ? "▴" : "▾"}</span>
+      </button>
+      {open && (
+        <div className="absolute end-0 top-full z-30 mt-2 w-64 max-w-xs rounded-xl bg-[#1C1610] text-sij-text-light shadow-lg ring-1 ring-sij-gold/40">
+          <ul className="py-2 text-sm">
+            <li>
+              <a
+                href="tel:+972546671211"
+                className="flex items-center gap-2 px-4 py-2 hover:bg-[#2C2015] hover:text-sij-gold"
+              >
+                <span>📞</span>
+                <span>054-667-1211</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/sajjadati1?igsh=MWw3OTFhcmUwaWMyZg=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 hover:bg-[#2C2015] hover:text-sij-gold"
+              >
+                <span>📸</span>
+                <span>Instagram</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
@@ -107,20 +151,16 @@ export default function Navbar() {
           <ul className="hidden items-center gap-6 text-sm font-medium md:flex">
             {NAV_ITEMS.map((key) => (
               <li key={key}>
-                {key === "catalog" ? (
-                  <CatalogDropdownDesktop />
-                ) : (
+                {key === "catalog" && <CatalogDropdownDesktop />}
+                {key === "home" && (
                   <Link
-                    href={
-                      key === "home"
-                        ? `/${locale}`
-                        : `/${locale}/${key}`
-                    }
+                    href={`/${locale}`}
                     className="transition-colors hover:text-sij-gold"
                   >
-                    {t(key)}
+                    {t("home")}
                   </Link>
                 )}
+                {key === "contact" && <ContactDropdown />}
               </li>
             ))}
           </ul>

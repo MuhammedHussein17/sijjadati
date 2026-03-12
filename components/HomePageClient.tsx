@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import type { Carpet } from "@/lib/sanity.types";
+import { CATEGORIES } from "@/lib/categories";
 
 function HeroSection() {
   const t = useTranslations("hero");
@@ -43,18 +44,30 @@ function HeroSection() {
           {t("subtitle")}
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Link
-            href={`/${locale}/catalog`}
-            className="rounded-full bg-sij-gold px-8 py-3 font-semibold text-sij-text-dark transition hover:bg-[#e0b852]"
-          >
-            {t("viewCatalog")}
-          </Link>
-          <Link
-            href={`/${locale}/contact`}
-            className="rounded-full border border-sij-gold px-8 py-3 font-semibold text-sij-gold transition hover:bg-sij-gold/10"
-          >
-            {t("requestQuote")}
-          </Link>
+          <div className="relative">
+            <div className="group inline-flex flex-col items-stretch">
+              <Link
+                href={`/${locale}/catalog`}
+                className="rounded-full bg-sij-gold px-8 py-3 text-sm font-semibold text-sij-text-dark transition hover:bg-[#e0b852]"
+              >
+                {t("viewCatalog")}
+              </Link>
+              <div className="invisible absolute end-0 top-full z-30 mt-2 w-64 max-w-xs rounded-xl bg-[#1C1610] text-sij-text-light shadow-lg opacity-0 ring-1 ring-sij-gold/40 transition group-hover:visible group-hover:opacity-100 md:group-hover:translate-y-0">
+                <ul className="py-2 text-sm">
+                  {CATEGORIES.map((cat) => (
+                    <li key={cat.value}>
+                      <Link
+                        href={`/${locale}/catalog?category=${cat.value}`}
+                        className="block px-4 py-2 hover:bg-[#2C2015] hover:text-sij-gold"
+                      >
+                        {cat.labelAr}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -66,9 +79,9 @@ function CategoriesSection() {
   const locale = useLocale();
 
   const cats = [
-    { key: "handmade", icon: "🧵", filter: "handmade" },
-    { key: "modern", icon: "🏠", filter: "modern" },
-    { key: "outdoor", icon: "🌿", filter: "outdoor" },
+    { key: "candles", icon: "🕯️", filter: "candles", label: "شموع" },
+    { key: "modern", icon: "🏠", filter: "carpets", label: t("modern") },
+    { key: "incense_burners", icon: "🪔", filter: "incense_burners", label: "مباخر" },
   ] as const;
 
   return (
@@ -86,7 +99,7 @@ function CategoriesSection() {
             >
               <span className="text-4xl">{cat.icon}</span>
               <span className="mt-3 font-semibold text-sij-text-light group-hover:text-sij-gold">
-                {t(cat.key)}
+                {cat.label}
               </span>
             </Link>
           ))}

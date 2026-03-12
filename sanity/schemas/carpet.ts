@@ -1,9 +1,13 @@
 import { defineField, defineType } from "sanity";
 
 const CATEGORY_OPTIONS = [
-  { title: "Handmade / Oriental", value: "handmade" },
-  { title: "Modern / Contemporary", value: "modern" },
-  { title: "Outdoor / Commercial", value: "outdoor" },
+  { title: "قسم السجاد (Carpets)", value: "carpets" },
+  { title: "قسم الشموع (Candles)", value: "candles" },
+  { title: "قسم مباخر البخور (Incense Burners)", value: "incense_burners" },
+  { title: "قسم مباخر الزيت (Oil Burners)", value: "oil_burners" },
+  { title: "ملفات (Rolls)", value: "rolls" },
+  { title: "مخدات (Cushions)", value: "cushions" },
+  { title: "ملفات لفرشة التخت (Bed Roll Covers)", value: "bed_rolls" },
 ];
 
 const PRICE_RANGE_OPTIONS = [

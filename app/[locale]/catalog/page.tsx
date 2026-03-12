@@ -1,7 +1,14 @@
 import { getCarpets } from "@/lib/sanity.data";
 import { CatalogClient } from "./CatalogClient";
 
-export default async function CatalogPage() {
+type Props = {
+  searchParams?: {
+    category?: string;
+  };
+};
+
+export default async function CatalogPage({ searchParams }: Props) {
   const carpets = await getCarpets();
-  return <CatalogClient carpets={carpets} />;
+  const category = typeof searchParams?.category === "string" ? searchParams.category : undefined;
+  return <CatalogClient carpets={carpets} initialCategory={category} />;
 }
