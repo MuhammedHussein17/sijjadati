@@ -8,6 +8,7 @@ import "../globals.css";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
+import AccessibilityButton from "../../components/AccessibilityButton";
 
 const heebo = Heebo({
   subsets: ["hebrew"],
@@ -48,6 +49,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <main className="flex-1">{children}</main>
             <Footer />
             <WhatsAppButton />
+            <AccessibilityButton />
           </div>
         </NextIntlClientProvider>
       </body>
