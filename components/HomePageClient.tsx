@@ -15,7 +15,7 @@ function HeroSection() {
       : "سجادتي - سجاد";
 
   return (
-    <section className="relative overflow-hidden bg-[#0A1F44] py-24 text-center text-white">
+    <section className="relative overflow-hidden bg-[#1C1610] py-24 text-center text-white">
       <div
         className="absolute inset-0 opacity-10"
         style={{
@@ -43,15 +43,9 @@ function HeroSection() {
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Link
             href={`/${locale}/catalog`}
-            className="rounded-full bg-[#B8960C] px-8 py-3 font-semibold text-[#0A1F44] transition hover:bg-[#a07a0a]"
+            className="rounded-full bg-[#B8960C] px-8 py-3 font-semibold text-[#1C1610] transition hover:bg-[#a07a0a]"
           >
             {t("viewCatalog")}
-          </Link>
-          <Link
-            href={`/${locale}/contact`}
-            className="rounded-full border border-[#B8960C] px-8 py-3 font-semibold text-[#B8960C] transition hover:bg-[#B8960C]/10"
-          >
-            {t("requestQuote")}
           </Link>
         </div>
       </div>
@@ -64,15 +58,15 @@ function CategoriesSection() {
   const locale = useLocale();
 
   const cats = [
-    { key: "handmade", icon: "🧵", filter: "handmade" },
+    { key: "incenseBurners", icon: "🪔", filter: "incense_burners" },
     { key: "modern", icon: "🏠", filter: "modern" },
-    { key: "outdoor", icon: "🌿", filter: "outdoor" },
+    { key: "candles", icon: "🕯️", filter: "candles" },
   ] as const;
 
   return (
     <section className="py-16">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <h2 className="mb-10 text-center text-2xl font-bold text-[#0A1F44]">
+        <h2 className="mb-10 text-center text-2xl font-bold text-[#F5EDD8]">
           {t("title")}
         </h2>
         <div className="grid gap-6 sm:grid-cols-3">
@@ -83,7 +77,7 @@ function CategoriesSection() {
               className="group flex flex-col items-center rounded-2xl border border-[#B8960C]/20 bg-white p-8 text-center shadow-sm transition hover:border-[#B8960C] hover:shadow-md"
             >
               <span className="text-4xl">{cat.icon}</span>
-              <span className="mt-3 font-semibold text-[#0A1F44] group-hover:text-[#B8960C]">
+              <span className="mt-3 font-semibold text-[#1C1610] group-hover:text-[#B8960C]">
                 {t(cat.key)}
               </span>
             </Link>
@@ -106,7 +100,7 @@ function TrustSection() {
   const icons = ["🎨", "⭐", "💬", "🚚"];
 
   return (
-    <section className="bg-[#0A1F44] py-16 text-white">
+    <section className="bg-[#1C1610] py-16 text-sij-text-light">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <h2 className="mb-10 text-center text-2xl font-bold text-[#B8960C]">
           {t("title")}
@@ -136,7 +130,7 @@ function FeaturedSection({ featuredCarpets }: { featuredCarpets: Carpet[] }) {
     <section className="py-16">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="mb-10 flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-[#0A1F44]">{t("title")}</h2>
+          <h2 className="text-2xl font-bold text-sij-text-light">{t("title")}</h2>
           <Link
             href={`/${locale}/catalog`}
             className="text-sm font-semibold text-[#B8960C] hover:underline"
@@ -171,7 +165,7 @@ function FeaturedSection({ featuredCarpets }: { featuredCarpets: Carpet[] }) {
                   )}
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-[#0A1F44]">{name}</h3>
+                  <h3 className="font-semibold text-sij-text-dark">{name}</h3>
                   <p className="mt-1 line-clamp-2 text-xs text-[#333]/70">
                     {desc}
                   </p>

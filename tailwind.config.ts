@@ -9,6 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Core brand background palette
+        background: "#1C1610",
+        backgroundSecondary: "#2C2015",
+        backgroundLight: "#F5EDD8",
+        navbar: "#0F0C08",
+
+        // Existing semantic aliases (kept for compatibility)
         "sij-bg-main": "#1C1610",
         "sij-bg-secondary": "#2C2015",
         "sij-bg-light": "#F5EDD8",
