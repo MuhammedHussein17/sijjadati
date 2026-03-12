@@ -1,23 +1,71 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { useTranslations, useLocale } from "next-intl";
+import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
+import { useMemo } from "react";
 import type { Carpet } from "@/lib/sanity.types";
 import { WHATSAPP_NUMBER } from "@/lib/site";
+import { CATEGORIES, type CategoryValue } from "@/lib/categories";
 
-export function CatalogClient({ carpets }: { carpets: Carpet[] }) {
+type Props = {
+  carpets: Carpet[];
+  initialCategory?: string;
+};
+
+export function CatalogClient({ carpets, initialCategory }: Props) {
   const t = useTranslations("catalog");
   const locale = useLocale();
 
+  const activeCategory: CategoryValue | "all" = useMemo(() => {
+    if (!initialCategory) return "all";
+    const match = CATEGORIES.find((c) => c.value === initialCategory);
+    return match ? match.value : "all";
+  }, [initialCategory]);
+
+  const filtered = useMemo(
+    () =>
+      activeCategory === "all"
+        ? carpets
+        : carpets.filter((p) => p.category === activeCategory),
+    [activeCategory, carpets]
+  );
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 md:px-6 bg-[#1C1610] text-sij-text-light">
-      <h1 className="mb-10 text-3xl font-bold text-sij-gold">{t("title")}</h1>
+      <h1 className="mb-6 text-3xl font-bold text-sij-gold">{t("title")}</h1>
+      <div className="mb-8 flex flex-wrap gap-2">
+        <Link
+          href={`/${locale}/catalog`}
+          className={`rounded-full border px-3 py-1 text-xs font-semibold ${
+            activeCategory === "all"
+              ? "border-sij-gold bg-sij-gold text-sij-text-dark"
+              : "border-sij-gold/40 text-sij-text-light hover:border-sij-gold hover:text-sij-gold"
+          }`}
+        >
+          الكل
+        </Link>
+        {CATEGORIES.map((cat) => (
+          <Link
+            key={cat.value}
+            href={`/${locale}/catalog?category=${cat.value}`}
+            className={`rounded-full border px-3 py-1 text-xs font-semibold ${
+              activeCategory === cat.value
+                ? "border-sij-gold bg-sij-gold text-sij-text-dark"
+                : "border-sij-gold/40 text-sij-text-light hover:border-sij-gold hover:text-sij-gold"
+            }`}
+          >
+            {cat.labelAr}
+          </Link>
+        ))}
+      </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {carpets.map((product) => {
+        {filtered.map((product) => {
           const name = locale === "he" ? product.name_he : product.name_ar;
           const desc =
-            locale === "he" ? product.description_he : product.description_ar;
+            locale === "he"
+              ? product.description_he
+              : product.description_ar;
           const imgUrl = product.images?.[0];
           return (
             <div
@@ -64,9 +112,11 @@ export function CatalogClient({ carpets }: { carpets: Carpet[] }) {
           );
         })}
       </div>
-      {carpets.length === 0 && (
-        <p className="text-center text-sij-text-light/70">
-          {locale === "he" ? "אין כרגע שטיחים בקטלוג." : "لا توجد سجاد في الكتالوج حالياً."}
+      {filtered.length === 0 && (
+        <p className="mt-8 text-center text-sij-text-light/70">
+          {locale === "he"
+            ? "אין כרגע מוצרים בקטגוריה זו."
+            : "لا توجد منتجات في هذه الفئة حالياً."}
         </p>
       )}
     </div>
